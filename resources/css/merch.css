@@ -1,0 +1,360 @@
+:root {
+  --primary-blue: #01153e;
+  --primary-orange: #fd8824;
+  --primary-yellow: #ffb200;
+  --light-yellow: #ffdd95;
+  --lightest-yellow: #fff7e9;
+  --white: #ffffff;
+}
+
+/* ================================== */
+/* GLOBAL STYLES                      */
+/* ================================== */
+body {
+  background: linear-gradient(to bottom, var(--primary-yellow), var(--primary-orange));
+  font-family: 'Inter', sans-serif;
+}
+
+.main-content {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+p {
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ================================== */
+/* REUSABLE STROKE TEXT EFFECT        */
+/* ================================== */
+.stroke-text-effect {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  color: var(--white);
+  z-index: 1;
+}
+
+.stroke-text-effect::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+  color: transparent;
+}
+
+/* ================================== */
+/* TYPOGRAPHY & HEADINGS              */
+/* ================================== */
+.title-merch {
+  position: relative;
+  font-weight: 500;
+  color: var(--primary-blue);
+  word-spacing: 2px;
+  font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+}
+
+.title-merch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  -webkit-text-stroke: 15px var(--light-yellow);
+  color: transparent;
+  z-index: -1;
+}
+
+h2.stroke-text-effect {
+  font-size: clamp(1.8rem, 4vw + 1rem, 2.5rem);
+}
+
+h2.stroke-text-effect::before {
+  -webkit-text-stroke: 6px var(--primary-yellow);
+}
+
+/* For FAQ title */
+.faq-title {
+  color: var(--primary-blue);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw + 1rem, 3.5rem);
+}
+
+.faq-title::before {
+  -webkit-text-stroke: 10px var(--lightest-yellow);
+}
+
+/* ================================== */
+/* SINGLE PRODUCT SECTION             */
+/* ================================== */
+.product-section {
+  background-color: var(--primary-yellow);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.product-image-wrapper {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+.product-image-wrapper:hover {
+    transform: scale(1.03);
+}
+
+.btn-get-now {
+  background-color: var(--primary-blue);
+  color: var(--light-yellow);
+  border: 2px solid var(--primary-blue);
+  border-radius: 15px;
+  padding: 0.6rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-get-now:hover {
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  background-color: var(--primary-yellow);
+}
+
+/* ================================== */
+/* PACKAGE SECTION                    */
+/* ================================== */
+.package-section {
+  background-color: var(--primary-yellow);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.package-item {
+  width: 100%;
+}
+
+.package-box {
+  background-color: var(--primary-blue);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.package-box.text {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.package-box.visuals {
+  background: none;
+  padding: 0;
+  align-items: center;
+}
+
+.package-box.visuals img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.package-box p {
+  margin-bottom: 1.5rem;
+}
+
+.btn-get-now-package {
+  background-color: var(--primary-yellow);
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.4rem 22px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  align-self: center; /* Use center for mobile stacking */
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-get-now-package:hover {
+  background-color: var(--primary-blue);
+  color: var(--primary-yellow);
+  border: 2px solid var(--primary-yellow);
+}
+
+/* ================================== */
+/* HOW TO ORDER SECTION               */
+/* ================================== */
+.how-to-order-section {
+  border-radius: 0.5rem;
+  padding: clamp(1rem, 5vw, 2rem); /* Fluid padding */
+}
+
+.order-steps {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: order-counter;
+}
+
+.order-steps li {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.order-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.order-steps li::before {
+  counter-increment: order-counter;
+  content: counter(order-counter);
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary-yellow);
+  color: var(--primary-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.order-steps li h3 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ================================== */
+/* FAQ SECTION (ACCORDION)            */
+/* ================================== */
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: transparent;
+}
+
+.accordion-item {
+  background: none;
+  border: none;
+  margin-bottom: 2px;
+  border-radius: 0.5rem;
+  overflow: visible !important;
+}
+
+.accordion-button {
+  background-color: var(--primary-blue);
+  font-weight: 600;
+  box-shadow: none !important;
+}
+
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--primary-blue);
+  color: var(--white) !important;
+}
+
+.accordion-button.collapsed {
+  border-radius: 0.5rem;
+  color: var(--white) !important;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+  background-color: var(--light-yellow);
+  color: var(--primary-blue);
+  font-weight: 500;
+   display: block !important; /* pastikan selalu tampil */
+  visibility: visible !important;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.4) !important;
+}
+
+
+/* ================================== */
+/* RESPONSIVE ADJUSTMENTS (MEDIA QUERIES) */
+/* ================================== */
+@media (max-width: 768px) {
+  .title-merch::before {
+    -webkit-text-stroke-width: 10px;
+  }
+
+  .package-box.text {
+    text-align: center;
+  }
+
+  .btn-get-now-package {
+     align-self: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-section, .package-section {
+    padding: 1rem;
+  }
+
+  .order-steps li {
+    padding-left: 45px;
+  }
+
+  .order-steps li::before {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .title-merch::before {
+    -webkit-text-stroke-width: 8px;
+  }
+
+  h2.stroke-text-effect::before {
+     -webkit-text-stroke-width: 4px;
+  }
+}
+
+/* ================================== */
+/* FLOATING WHATSAPP BUTTON           */
+/* ================================== */
+.whatsapp-float {
+  position: fixed;
+  width: 75px;
+  height: 75px;
+  bottom: 50px;
+  right: 30px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-float img {
+  width: 45px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}

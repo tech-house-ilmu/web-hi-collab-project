@@ -9,6 +9,7 @@
 @import "./style.css";
 @import "./global.css";
 @import "./splide.css";
+@import "./merch.css";
 
 @tailwind base;
 @tailwind components;
